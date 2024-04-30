@@ -7,11 +7,11 @@ const PlayerCard = ({name,img,statistics}) => {
     <Col>
       <Card>
         <Card.Img variant="top" src={img} height="350px" />
-        <ul>
+        {/* <ul>
           {
-            statistics.map((item,i)=> <li key={i}>{item}</li>)
+            statistics.map((item,i)=> <li className="list-unstyled h5 text-start" key={i}>{item}</li>)
           }
-        </ul>
+        </ul> */}
         <Card.Footer>
         <Card.Title>{name}</Card.Title>
         </Card.Footer>
