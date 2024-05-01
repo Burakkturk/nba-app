@@ -7,11 +7,12 @@ const PlayerCard = ({ name, img, statistics }) => {
   //  && || ?:
   return (
     <Col>
-      <Card>
+      <Card onClick={() => setShowImage(!showImage)} className="player-card" role="button">
         {showImage ? (
           <Card.Img variant="top" src={img} height="350px" onClick={()=> setShowImage(false)} />
         ) : (
-          <ul onClick={() => setShowImage(true)}>
+          <ul className="m-auto" >
+          {/* // onClick={() => setShowImage(true)}  */}
             {statistics.map((item, i) => (
               <li className="list-unstyled h5 text-start" key={i}>
                 {" "}
