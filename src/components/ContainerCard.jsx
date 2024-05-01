@@ -1,9 +1,9 @@
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import PlayerCard from "./PlayerCard";
 import { useState } from "react";
 import { data } from "../helpers/data";
+import PlayerCard from "./PlayerCard";
 
 const ContainerCard = () => {
   const [search, setSearch] = useState("");
@@ -24,12 +24,12 @@ const ContainerCard = () => {
     <>
       <Form.Control
         type="search"
+        value={search}
         placeholder="Search Player..."
         onChange={handleChange}
       />
       <Container className="p-3 rounded-4 card-container my-3">
         <Row xs={2} md={4} lg={6} className="justify-content-center g-3">
-          
           {filteredData.map((player, i) => (
             <PlayerCard
               key={i}
@@ -40,12 +40,13 @@ const ContainerCard = () => {
               {...player}
             />
           ))}
-          {filteredData.map((player, i) => (
-            <PlayerCard
-              key={i}
-              {...player}
-            />
-          ))}
+          {data
+            .filter((item) =>
+              item.name.toLowerCase().includes(search.trim().toLowerCase())
+            )
+            .map((player, i) => (
+              <PlayerCard key={i} {...player} />
+            ))}
         </Row>
       </Container>
     </>
